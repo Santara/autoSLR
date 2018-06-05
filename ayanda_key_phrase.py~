@@ -1,13 +1,7 @@
-#pdfminer_text = open("AlphaGo.txt")
-# r = Rake()
-# pp = pprint.PrettyPrinter()
-# r.extract_keywords_from_text(pdfminer_text)
-# pp.pprint(r.get_ranked_phrases_with_scores()[:20])
-
 import os
 import sys
 directory = sys.argv[1]
-outfile = open("key_phrases.csv","w")
+out_keyword_file = open("key_phrases.csv","w")
 
 # NUM_KEYWORDS_FROM_EACH_FILE = 25
 
@@ -40,7 +34,7 @@ for filename in os.listdir(directory):
 	# keywords = [k[0] for k in keywords]
 
 	for entry in keywords:
-		outfile.write("%s, %s\n" % (entry[0], str(entry[1])) )
+		out_keyword_file.write("%s, %s\n" % (entry[0], str(entry[1])) )
 
 	# print keywords
 	# pp.pprint(r.get_ranked_phrases_with_scores()[:50])
@@ -66,4 +60,4 @@ for filename in os.listdir(directory):
 
 
 	# num_keywords_extracted_f.close()
-outfile.close()
+out_keyword_file.close()
